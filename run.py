@@ -104,7 +104,7 @@ class MainForm(views.LauncherFrame):
                 self.AppsList.Append(item, path)
 
     def missing_file(self,path):
-        dlg = wx.MessageDialog('Missing file','The file %s not exists'%path, wx.ICON_ERROR)
+        dlg = wx.MessageDialog(self,'Missing file','The file %s not exists'%path, wx.ICON_ERROR)
         dlg.ShowModal()
         dlg.Destroy()
 
@@ -194,7 +194,7 @@ class MainForm(views.LauncherFrame):
 
     def run(self,file_name):
         "run the selected app"
-        if file_name.endswith('.py'):
+        if file_name.endswith('.py') or file_name.endswith('.pyw'):
             os.chdir(os.path.dirname(file_name))
             subprocess.Popen([self.PythonPath.GetPath(),file_name])
         elif file_name.endswith('.exe'):
