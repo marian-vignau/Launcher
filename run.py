@@ -5,6 +5,8 @@ TODO: Beautify the look, using icons, etc
 Create a right-click popup menu to easy access
 Validates path before errors
 Multiplatform, proving it on Linux
+
+
 """
 
 import wx, views, sys, subprocess
@@ -15,6 +17,7 @@ import json, os
 config_path=os.path.join(os.path.abspath(os.curdir),'config.json')
 my_drive=os.path.splitdrive(os.path.abspath(os.curdir))[0]
 class MainForm(views.LauncherFrame):
+    '''    The only onw windows of this application    '''
     def __init__(self):
         super(MainForm, self).__init__(None)
         self.Portable.SetLabel('Portable mode (launch from %s drive)'%my_drive)
